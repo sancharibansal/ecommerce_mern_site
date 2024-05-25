@@ -21,7 +21,7 @@ mongoose
 
 app.use(cors(
     {
-        origin: ["https://ecommerce-mern-api-three.vercel.app"],
+        origin: ["https://deploy-mern-lwhq.vercel.app"],
         methods: ["POST", "GET"],
         credentials: true;
     }
