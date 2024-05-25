@@ -19,7 +19,13 @@ mongoose
      console.log(err);
 });
 
-app.use(cors());  
+app.use(cors(
+    {
+        origin: ["https://deploy-mern-lwha.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true;
+    }
+));  
 app.use(express.json());
 app.use("/api/auth", authRoute);
 app.use("/api/users", userRoute);
@@ -27,6 +33,8 @@ app.use("/api/products", productRoute);
 app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/checkout", stripeRoute);
+
+mongoose.connect (mongodb+srv://sanchari06:SanMongoDB@clustersan06.xnt1da4.mongodb.net/?retryWrites=true&w=majority&appName=ClusterSan06)
 
 app.listen(process.env.PORT || 5173, ()=>{
     console.log("Backend server is running!");
