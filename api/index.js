@@ -28,7 +28,6 @@ app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
 app.use("/api/checkout", stripeRoute);
 
-mongoose.connect (mongodb+srv://sanchari06:SanMongoDB@clustersan06.xnt1da4.mongodb.net/?retryWrites=true&w=majority&appName=ClusterSan06)
 
 app.listen(process.env.PORT || 5173, ()=>{
     console.log("Backend server is running!");
