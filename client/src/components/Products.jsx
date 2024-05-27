@@ -19,7 +19,7 @@ const Products = ({cat, filters, sort}) => {
   useEffect(()=>{
     const getProducts = async ()=>{
       try {
-        const res = await axios.get( cat ? `http://localhost:5173/api/products?category=${cat}` : "http://localhost:5173/api/products"
+        const res = await axios.get( cat ? `https://ecommerce-mern-site4.onrender.com/api/products?category=${cat}` : "https://ecommerce-mern-site4.onrender.com/api/products"
       );
       setProducts(res.data)
       } catch (err) {

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:5173/api/";
+const BASE_URL = "https://ecommerce-mern-site4.onrender.com/api/";
 //const TOKEN = JSON.parse(JSON.parse(localStorage.getItem("persist:root")).user).currentUser.accessToken || "";
 
 const user = JSON.parse(localStorage.getItem("persist:root"))?.user;
