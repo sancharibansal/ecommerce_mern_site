@@ -8,10 +8,10 @@ import { useLocation } from "react-router-dom"
 import { publicRequest } from "../requestMethods"
 import { useEffect, useState } from "react"
 import { addProduct } from "../redux/cartRedux"
-import { UseDispatch, useDispatch } from "react-redux"
+import { useDispatch } from "react-redux"
 
 const Container = styled.div``
-
+c
 const Wrapper = styled.div`
   padding: 50px;
   display: flex;
@@ -125,8 +125,8 @@ const Product = () => {
   const id = location.pathname.split("/")[2];
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
-  const [color, setColor] = useState("");
-  const [size, setSize] = useState("");
+  // const [color, setColor] = useState("");
+  // const [size, setSize] = useState("");
   const dispatch = useDispatch();
 
   useEffect(()=>{
