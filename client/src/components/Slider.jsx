@@ -3,6 +3,7 @@ import { useState } from "react";
 import styled from "styled-components"
 import {sliderItems} from "../data"
 import { mobile } from "../responsive";
+import { Link } from 'react-router-dom'; 
 
 const Container = styled.div `
     width: 100%;
@@ -10,7 +11,7 @@ const Container = styled.div `
     display: flex;
     position: relative;
     overflow: hidden;
-    ${mobile({ display: "None"})}
+    ${mobile({ display: "50vh"})}
 `
 
 const Arrow = styled.div`
@@ -30,6 +31,7 @@ const Arrow = styled.div`
     cursor: pointer;
     opacity: 0.5;
     z-index: 2;
+    ${mobile({ width: "30px", height: "30px" })}
 `;
 
 const Wrapper = styled.div`
@@ -44,11 +46,16 @@ const Slide= styled.div`
     height: 100vh;
     display: flex;
     align-items: center;
-    background-color: #${props => props.bg};
+    //background-color: #${props => props.bg};
+    background-image: url(${props => props.bgImg});
+    background-size: cover;
+    background-position: center;
+    ${mobile({ height: "50vh", flexDirection: "column" })}
 `;
 const ImgContainer= styled.div`
     height: 100%;
     flex: 1;
+    ${mobile({ height: "50%" })}
 `;
 
 const Image = styled.img`
@@ -63,6 +70,7 @@ const InfoContainer= styled.div`
 const Title = styled.h1`
     font-size: 45px;
     letter-spacing: 5px;
+    color: black;
 `;
 const Desc = styled.p`
     margin: 50px 0px;
@@ -77,7 +85,7 @@ const Button = styled.button`
     cursor: pointer;
     transition: all 0.5s ease;
     &:hover{
-        background-color: #e9f5f5;
+        background-color: #eed1e6;
         transform: scale(1.1);
     }
 `;
@@ -99,7 +107,23 @@ const Slider = () => {
       </Arrow>
       <Wrapper slideIndex = {slideIndex}>
         {sliderItems.map((item) => (
-        <Slide bg = {item.bg} key={item.id}>
+        // <Slide bg = {item.bg} key={item.id}>
+        <Slide bgImg={item.bgImg} key={item.id}>
+        <ImgContainer>
+            <Image src= {item.img}/>
+        </ImgContainer>
+        <InfoContainer>
+            <Title>{item.title}</Title>
+            <Desc>{item.desc}</Desc>
+            <Link to = "/products/women">
+            <Button>SHOP NOW</Button>
+            </Link>
+        </InfoContainer>
+        </Slide>
+        ))}
+        {sliderItems.map((item) => (
+        // <Slide bg = {item.bg} key={item.id}>
+        <Slide bgImg={item.bgImg} key={item.id}>
         <ImgContainer>
             <Image src= {item.img}/>
         </ImgContainer>
@@ -110,7 +134,7 @@ const Slider = () => {
         </InfoContainer>
         </Slide>
         ))}
-        <Slide bg = "f3e1ec">
+        {/* <Slide bg="f3e1ec">
         <ImgContainer>
             <Image src= "images/img1.png"/>
         </ImgContainer>
@@ -119,18 +143,33 @@ const Slider = () => {
             <Desc>GET FLAT 20% OFF ON NEW ARRIVALS</Desc>
             <Button>SHOP NOW</Button>
         </InfoContainer>
-        </Slide>
+        </Slide> */}
 
-        <Slide bg = "f4e6ef">
+        {sliderItems.map((item) => (
+        // <Slide bg = {item.bg} key={item.id}>
+        <Slide bgImg={item.bgImg} key={item.id}>
         <ImgContainer>
-            <Image src= "images/img1.jpg"/>
+            <Image src= {item.img}/>
         </ImgContainer>
         <InfoContainer>
-            <Title>WINTER SALE</Title>
-            <Desc>GET FLAT 20% OFF ON NEW ARRIVALS</Desc>
+            <Title>{item.title}</Title>
+            <Desc>{item.desc}</Desc>
             <Button>SHOP NOW</Button>
         </InfoContainer>
         </Slide>
+        ))}{sliderItems.map((item) => (
+        // <Slide bg = {item.bg} key={item.id}>
+        <Slide bgImg={item.bgImg} key={item.id}>
+        <ImgContainer>
+            <Image src= {item.img}/>
+        </ImgContainer>
+        <InfoContainer>
+            <Title>{item.title}</Title>
+            <Desc>{item.desc}</Desc>
+            {/* <Button>SHOP NOW</Button> */}
+        </InfoContainer>
+        </Slide>
+        ))}
       </Wrapper>
       <Arrow direction="right" onClick = {()=>handleClick("right")}>
         <ArrowRightOutlined/>
@@ -140,4 +179,3 @@ const Slider = () => {
 }
 
 export default Slider
-

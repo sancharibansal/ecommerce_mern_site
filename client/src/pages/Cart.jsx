@@ -34,7 +34,7 @@ const Top = styled.div`
 const TopButton = styled.button`
   padding: 10px;
   font-weight: 600;
-  cursor: pointer;
+  //cursor: pointer;
   border: ${props => (props.type === "filled" ? "none" : "1px solid black")};
   background-color: ${props => (props.type === "filled" ? "black" : "transparent")};
   color: ${props => props.type === "filled" && "white"};
@@ -163,6 +163,22 @@ const Cart = () => {
         setStripeToken(token);
     };
 
+//     const handleIncreaseAmount = (productId) => {
+//         const updatedCart = cart.products.map((product) =>
+//           product._id === productId ? { ...product, quantity: product.quantity + 1 } : product
+//         );
+//         dispatch(updateCart(updatedCart)); // Dispatch the updateCart action with the updated cart
+//       };
+//   // Function to handle decrease in product quantity
+//   const handleDecreaseAmount = (productId) => {
+//     const updatedCart = cart.products.map((product) =>
+//       product._id === productId && product.quantity > 1 ? { ...product, quantity: product.quantity - 1 } : product
+//     );
+//     dispatch(updateCart(updatedCart)); // Dispatch the updateCart action with the updated cart
+//   };
+
+    
+
   useEffect(()=>{
     const makeRequest = async ()=>{
         try {
@@ -186,7 +202,7 @@ const Cart = () => {
         <Top>
             <TopButton>CONTINUE SHOPPING</TopButton>
             <TopTexts>
-                <TopText>Shopping Bag(2)</TopText>
+                <TopText>Shopping Bag(0)</TopText>
                 <TopText>Your Wishlist (0)</TopText>
             </TopTexts>
             <TopButton type ="filled">CHECKOUT NOW</TopButton>
@@ -241,7 +257,7 @@ const Cart = () => {
                 </SummaryItem>
                 <StripeCheckout
                     name = "Touch N Glow" 
-                    image = "logo.png"
+                    image = "file:///Users/sanchari/E-CommerceAPI/public/logo.png"
                     billingAddress
                     description = {`Your total is Rs.${cart.total}`}
                     amount = {cart.total*100}

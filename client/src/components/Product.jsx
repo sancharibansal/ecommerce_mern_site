@@ -26,7 +26,7 @@ const Container = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #f5fbfd; //background color of products image
+    background-color: #f7f2f5; //background color of products image
     position: relative;
 
     &:hover ${Info}{
@@ -58,7 +58,7 @@ const Icon= styled.div`
     //hover on icons
     transition: all 0.5s ease;
     &:hover{
-        background-color: #e9f5f5;
+        background-color: #eed1e6;
         transform: scale(1.1);
     }
 `;

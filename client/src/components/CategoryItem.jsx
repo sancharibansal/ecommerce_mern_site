@@ -38,7 +38,7 @@ const Button = styled.button`
     font-weight: 600;
     transition: all 0.5s ease;
     &:hover{
-        background-color: #e9f5f5;
+        background-color: #eed1e6;
         transform: scale(1.1);
     }
 `;

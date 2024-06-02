@@ -81,17 +81,23 @@ const Footer = () => {
         <Desc>Elevate your style with Touch N Glow, where fashion meets sophistication. Discover curated collections of chic apparel and accessories that redefine elegance. Shop with confidence, embracing the essence of timeless glamour. Your journey to unparalleled fashion begins here.</Desc>
         <SocialContainer>
 
+        <a href="https://www.facebook.com/touchnglow4u" target="_blank" rel="noopener noreferrer">   
             <SocialIcon color= "4267B2">
                 <Facebook/>
             </SocialIcon>
+        </a>
 
+        <a href="https://www.instagram.com/touchnglow4u/" target="_blank" rel="noopener noreferrer">
             <SocialIcon color= "E4405F">
                 <Instagram/>
             </SocialIcon>
-
+        </a>
+        
+        <a href="wa.me/+919956087551" target="_blank" rel="noopener noreferrer">
             <SocialIcon color= "25D366">
                 <WhatsApp/>
             </SocialIcon>
+        </a>
 
         </SocialContainer>
       </Left>
@@ -116,11 +122,18 @@ const Footer = () => {
         <ContactItem> 
             <Place style = {{marginRight: "10px"}}/>UGF-2, Aliganj Shopping Center, Chaudhary Tola, Kursi Rd, Aliganj, Lucknow-226022
         </ContactItem>
-        <ContactItem> 
-             <Phone style = {{marginRight: "10px"}}/>+919956087551, +919935375793
+        <ContactItem>
+            <a href="tel:+919956087551" style={{textDecoration: "none", color: "inherit"}}>
+                <Phone style={{marginRight: "10px"}} />+919956087551
+            </a>, 
+            <a href="tel:+919935375793" style={{textDecoration: "none", color: "inherit"}}>
+                +919935375793
+            </a>
         </ContactItem>
         <ContactItem>
-            <MailOutline style = {{marginRight: "10px"}}/> sanchari.bansal@gmail.com
+            <a href="mailto:sanchari.bansal@gmail.com" style={{textDecoration: "none", color: "inherit"}}>
+                <MailOutline style={{marginRight: "10px"}} /> sanchari.bansal@gmail.com
+            </a>
         </ContactItem>
         <Payment src="https://i.ibb.co/Qfvn4z6/payment.png"/>
       </Right>

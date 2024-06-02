@@ -100,7 +100,7 @@ const Amount = styled.span`
   width: 30px;
   height: 30px;
   border-radius: 10px;
-  border: 1px solid teal;
+  border: 1px solid pink;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -109,13 +109,13 @@ const Amount = styled.span`
 
 const Button = styled.button`
   padding: 15px;
-  border: 3px solid teal;
+  border: 3px solid pink;
   background-color: white;
   cursor: pointer;
   font-weight: 500;
 
   &:hover{
-    background-color: #f8f8f4;
+    background-color: #fbf6fa;
   }
 `
 
@@ -124,8 +124,8 @@ const Product = () => {
   const id = location.pathname.split("/")[2];
   const [product, setProduct] = useState({});
   const [quantity, setQuantity] = useState(1);
-  const [setColor] = useState("");
-  const [setSize] = useState("");
+  const [color, setColor] = useState("");
+  const [size, setSize] = useState("");
   const dispatch = useDispatch();
 
   useEffect(()=>{
@@ -138,17 +138,25 @@ const Product = () => {
       getProduct()
     },[id]);
     
-  const handleQuantity = (type) => {
-    if(type === "dec"){
-      quantity > 1 && setQuantity(quantity - 1)
-    }else{
-      setQuantity(quantity + 1)
+  // const handleQuantity = (type) => {
+  //   if(type === "dec"){
+  //     quantity > 1 && setQuantity(quantity - 1)
+  //   }else{
+  //     setQuantity(quantity + 1)
+  //   }
+  // };
+
+  const handleQuantity = (action) => {
+    if (action === "inc") {
+        setQuantity(quantity + 1); // Increment quantity
+    } else if (action === "dec" && quantity > 1) {
+        setQuantity(quantity - 1); // Decrement quantity only if it's greater than 1
     }
-  };
+};
 
   const handleClick = () => {
     dispatch(
-      addProduct({ product, quantity, price:product.price * quantity })
+      addProduct({ product, quantity, color, size, price:product.price * quantity })
     );
   };
 
